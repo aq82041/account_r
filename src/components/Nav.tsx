@@ -1,22 +1,28 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
-import x from "icons/chart.svg";
-import y from "icons/money.svg";
-import z from "icons/label.svg";
-
-console.log(x);
-console.log(y);
-console.log(z);
+require("icons/chart.svg");
+require("icons/label.svg");
+require("icons/money.svg");
 
 const Navdiv=styled.nav`
-  border:1px solid green;
+  box-shadow:0 0 3px rgba(0,0,0,0.25);
   > ul{
     display:flex;
     > li{
       width:33.33333%;
       text-align: center;
-      padding:16px;
+      padding:6px 16px;
+      font-size:12px;
+      > .link{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        > .icon{
+          width:32px;
+          height:32px;
+        }
+      }
     }
   }
 `
@@ -26,17 +32,30 @@ function Nav(){
         <Navdiv>
             <ul>
                 <li>
-                    <Link to="/statistics">
-                        <img src={x} alt=""/>
-                        统计
+                    <Link to="/statistics" className='link'>
+                        <svg className='icon'>
+                            <use xlinkHref='#chart'/>
+                        </svg>
+                        <span>统计</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/money">
-                        <img src={y} alt=""/>记一笔</Link>
+                    <Link to="/money" className='link'>
+                        <svg className='icon'>
+                            <use xlinkHref='#money'/>
+                        </svg>
+                        <span>记一笔</span>
+
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/tags"><img src={z} alt=""/>标签</Link>
+                    <Link to="/tags" className='link'>
+                        <svg className='icon'>
+                            <use xlinkHref='#label'/>
+                        </svg>
+                        <span>标签</span>
+
+                    </Link>
                 </li>
 
             </ul>
