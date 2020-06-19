@@ -1,9 +1,7 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
-require("icons/chart.svg");
-require("icons/label.svg");
-require("icons/money.svg");
+import Icon from './Icon';
 
 const Navdiv=styled.nav`
   box-shadow:0 0 3px rgba(0,0,0,0.25);
@@ -33,26 +31,20 @@ function Nav(){
             <ul>
                 <li>
                     <Link to="/statistics" className='link'>
-                        <svg className='icon'>
-                            <use xlinkHref='#chart'/>
-                        </svg>
+                        <Icon name='chart'/>
                         <span>统计</span>
                     </Link>
                 </li>
                 <li>
                     <Link to="/money" className='link'>
-                        <svg className='icon'>
-                            <use xlinkHref='#money'/>
-                        </svg>
+                        <Icon name='money'/>
                         <span>记一笔</span>
 
                     </Link>
                 </li>
                 <li>
                     <Link to="/tags" className='link'>
-                        <svg className='icon'>
-                            <use xlinkHref='#label'/>
-                        </svg>
+                        <Icon name='label'/>
                         <span>标签</span>
 
                     </Link>
