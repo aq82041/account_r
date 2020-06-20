@@ -5,6 +5,7 @@ import Icon from './Icon';
 
 const Navdiv=styled.nav`
   box-shadow:0 0 3px rgba(0,0,0,0.25);
+  background: white;
   > ul{
     display:flex;
     > li{
