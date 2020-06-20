@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
@@ -16,9 +16,17 @@ const Navdiv=styled.nav`
         display:flex;
         flex-direction: column;
         align-items: center;
+        color:rgb(197, 197, 197);
+        &.selected{
+          color:rgb(140, 177, 253);
+          > .icon{
+            fill:rgb(140, 177, 253);
+          }
+        }
         > .icon{
           width:32px;
           height:32px;
+          fill:rgb(197, 197, 197);
         }
       }
     }
@@ -30,24 +38,24 @@ function Nav(){
         <Navdiv>
             <ul>
                 <li>
-                    <Link to="/statistics" className='link'>
+                    <NavLink to="/statistics" className='link' activeClassName="selected">
                         <Icon name='chart'/>
                         <span>统计</span>
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/money" className='link'>
+                    <NavLink to="/money" className='link' activeClassName="selected">
                         <Icon name='money'/>
                         <span>记一笔</span>
 
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/tags" className='link'>
+                    <NavLink to="/tags" className='link' activeClassName="selected">
                         <Icon name='label'/>
                         <span>标签</span>
 
-                    </Link>
+                    </NavLink>
                 </li>
 
             </ul>
