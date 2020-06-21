@@ -21,12 +21,8 @@ function Money() {
                 </ul>
             </CategorySection>
             <TagSection />
-            <NoteSection>
-                <label>
-                    <span>备注：</span>
-                    <input type='text' placeholder='在这里写备注~'/>
-                </label>
-            </NoteSection>
+            <NoteSection />
+
             <NumberpadSection>
                 <div className='output'>0</div>
                 <div className='pad clearfix'>

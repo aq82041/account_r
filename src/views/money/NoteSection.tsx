@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import React, {useRef, useState} from 'react';
 
-const NoteSection=styled.section`
+const NoteWrapper=styled.section`
   font-size:14px;
   padding:0 16px;
   background:white;
@@ -20,4 +21,23 @@ const NoteSection=styled.section`
   }
   
 `
+
+const NoteSection: React.FC=()=>{
+    const [note,setNote]=useState('')
+    const refInput=useRef<HTMLInputElement>(null)
+    const onBlur=()=>{
+        if(refInput.current!==null){
+            setNote(refInput.current.value)
+        }
+    }
+    return (
+        <NoteWrapper>
+            <label>
+                <span>备注：</span>
+                <input type='text' placeholder='在这里写备注~'
+                ref={refInput} defaultValue={note} onBlur={onBlur}/>
+            </label>
+        </NoteWrapper>
+    )
+}
 export default NoteSection
