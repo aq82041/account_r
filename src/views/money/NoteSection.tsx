@@ -14,7 +14,7 @@ const NoteWrapper=styled.section`
       white-space:nowrap;
     }
     > input{
-      height:40px;
+      height:48px;
       width:100%;
       border:none;
     }
