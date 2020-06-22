@@ -18,40 +18,23 @@ function Money() {
         note:'',
         amount:'0'
     })
+    type r=typeof selectedRecord
+    const onChange=(obj: Partial<r>)=>{
+        setSelectedRecord({...selectedRecord,...obj})
+    }
     return (
         <StyledLayout>
-
             <CategorySection value={selectedRecord.category}
-                            onChange={(c)=>{
-                                setSelectedRecord({
-                                    ...selectedRecord,
-                                    category: c
-                                })
-                            }}
+                            onChange={c=>onChange({category: c})}
             />
             <TagSection value={selectedRecord.tags}
-            onChange={(tags)=>{
-                setSelectedRecord({
-                    ...selectedRecord,
-                    tags:tags
-                })
-            }}
+                        onChange={tags=>onChange({tags})}
             />
             <NoteSection value={selectedRecord.note}
-            onChange={(note)=>{
-                setSelectedRecord({
-                    ...selectedRecord,
-                    note:note
-                })
-            }}
+            onChange={note=>onChange({note})}
             />
             <NumberpadSection value={selectedRecord.amount}
-            onChange={(amount)=>{
-                setSelectedRecord({
-                    ...selectedRecord,
-                    amount:amount
-                })
-            }}/>
+            onChange={amount=>onChange({amount})}/>
         </StyledLayout>
     );
 }
