@@ -31,20 +31,25 @@ const CategoryWrapper=styled.section`
     }
   }
 `
-const CategorySection: React.FC=()=>{
+
+type Props={
+    value:'-' | '+',
+    onChange: (c: ('-' | '+'))=>void,
+}
+const CategorySection: React.FC <Props> =(props)=>{
+    const category=props.value
     const categoryMap={
         '-':'支出',
         '+':'收入',
     }
     type Y=keyof typeof categoryMap
-    const [category,setCategory]=useState('-')   //当前被选中的
     const [categoryList]=useState<Y[]>(['-','+']) //全部列表
 
     return (
         <CategoryWrapper>
             <ul>
                 {categoryList.map(c=>
-                    <li key={c} className={category===c? 'selected':''} onClick={()=>{setCategory(c)}}>
+                    <li key={c} className={category===c? 'selected':''} onClick={()=>{props.onChange(c)}}>
                         {categoryMap[c]}
                     </li>)}
             </ul>
