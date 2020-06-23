@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Icon from '../../components/Icon';
-import React, {useState} from 'react';
+import React from 'react';
 import useTags from '../../useTags';
 
 const Wrapper=styled.section`
@@ -46,40 +46,40 @@ const Wrapper=styled.section`
 `
 
 type Props={
-    value: string[],
-    onChange:(tags:string[])=>void
+    value: number[],
+    onChange:(tagsId:number[])=>void
 }
 const TagSection : React.FC <Props> =(props)=>{
     const {tags,setTags}=useTags()
-    const selectedTags=props.value
+    const selectedTagsId=props.value
     const onAddTag=()=>{
         const tagname=window.prompt('你要添加的标签名是')
         if(tagname){
-            setTags([...tags,tagname])
+            setTags([...tags,{id:Math.random(),name:tagname}])
         }
     }
-    const onToggleTag=(tag: string)=>{
-        if(selectedTags.indexOf(tag)>=0){
-            props.onChange(selectedTags.filter(t=>t!==tag))
+    const onToggleTag=(tagId: number)=>{
+        if(selectedTagsId.indexOf(tagId)>=0){
+            props.onChange(selectedTagsId.filter(t=>t!==tagId))
 
         }else{
-            props.onChange([...selectedTags,tag])
+            props.onChange([...selectedTagsId,tagId])
         }
     }
-    const getClass=(tag: string)=>{
-        return selectedTags.indexOf(tag)>=0?'selected':''
+    const getClass=(tagId: number)=>{
+        return selectedTagsId.indexOf(tagId)>=0?'selected':''
     }
 
     return (
         <Wrapper>
             <ul>
                 {tags.map(tag=>
-                    <li key={tag} onClick={()=>{onToggleTag(tag)}} className={getClass(tag)}>
+                    <li key={tag.id} onClick={()=>{onToggleTag(tag.id)}} className={getClass(tag.id)}>
                         <div>
-                            {['衣服','餐饮','住房','交通'].indexOf(tag)>=0?<Icon name={tag}/> : <Icon name='star'/>}
+                            {['衣服','餐饮','住房','交通'].indexOf(tag.name)>=0?<Icon name={tag.name}/> : <Icon name='star'/>}
 
                         </div>
-                    <span>{tag}</span>
+                    <span>{tag.name}</span>
                     </li>)
                 }
 

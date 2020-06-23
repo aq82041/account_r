@@ -14,7 +14,7 @@ type Category='-' | '+'
 function Money() {
     const [selectedRecord,setSelectedRecord]=useState({
         category:'-' as Category,
-        tags:[] as string[],
+        tagsId:[] as number[],
         note:'',
         amount:'0'
     })
@@ -27,8 +27,8 @@ function Money() {
             <CategorySection value={selectedRecord.category}
                             onChange={c=>onChange({category: c})}
             />
-            <TagSection value={selectedRecord.tags}
-                        onChange={tags=>onChange({tags})}
+            <TagSection value={selectedRecord.tagsId}
+                        onChange={tagsId=>onChange({tagsId})}
             />
             <NoteSection value={selectedRecord.note}
             onChange={note=>onChange({note})}
