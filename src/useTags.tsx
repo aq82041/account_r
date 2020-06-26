@@ -10,26 +10,13 @@ function useTags(){
     const findTag=(id: number)=>{
         return tags.filter(t=>t.id===id)[0]
     }
-    const findTagIndex=(id: number)=>{
-        for(let i=0;i<tags.length;i++){
-            if(tags[i].id===id){
-                return i
-            }
-        }
-        return -1
-    }
+
     const editTag=(id:number,newName:string)=>{
-        const index=findTagIndex(id)
-        const tagsClone=JSON.parse(JSON.stringify(tags))
-        tagsClone.splice(index,1,{id:id,name:newName})
-        setTags(tagsClone)
+        setTags(tags.map(tag=>tag.id===id ? {id:id,name:newName} : tag))
 
     }
     const deleteTag=(id:number)=>{
-        const index=findTagIndex(id)
-        const tagsClone=JSON.parse(JSON.stringify(tags))
-        tagsClone.splice(index,1)
-        setTags(tagsClone)
+        setTags(tags.filter(tag=>tag.id!==id))
     }
     return {tags,setTags,findTag,editTag,deleteTag}
 }

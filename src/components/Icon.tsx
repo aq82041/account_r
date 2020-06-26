@@ -1,5 +1,5 @@
 import React from 'react';
-
+import cs from 'classnames';
 require("icons/chart.svg");
 require("icons/label.svg");
 require("icons/money.svg");
@@ -9,10 +9,11 @@ try {importAll(require.context('../icons', true, /\.svg$/));} catch (error) {con
 
 type Props={
     name:string
-}
+}& React.SVGAttributes<SVGElement>
 function Icon(props:Props){
+    const {name,children,className,...rest}=props
     return (
-        <svg className='icon'>
+        <svg className={cs('icon' , className)} {...rest}>
             <use xlinkHref={'#'+props.name}/>
         </svg>
     )
