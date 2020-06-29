@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Icon from 'components/Icon';
 import React from 'react';
 import useTags from 'useTags';
-import createId from 'lib/createId';
 
 const Wrapper=styled.section`
   background:white;
@@ -51,14 +50,9 @@ type Props={
     onChange:(tagsId:number[])=>void
 }
 const TagSection : React.FC <Props> =(props)=>{
-    const {tags,setTags}=useTags()
+    const {tags,addTag}=useTags()
     const selectedTagsId=props.value
-    const onAddTag=()=>{
-        const tagname=window.prompt('你要添加的标签名是')
-        if(tagname){
-            setTags([...tags,{id:createId(),name:tagname}])
-        }
-    }
+
     const onToggleTag=(tagId: number)=>{
         if(selectedTagsId.indexOf(tagId)>=0){
             props.onChange(selectedTagsId.filter(t=>t!==tagId))
@@ -81,13 +75,11 @@ const TagSection : React.FC <Props> =(props)=>{
                             {['衣服','餐饮','住房','交通'].indexOf(tag.name)>=0?<Icon name={tag.name}/> : <Icon name='star'/>}
 
                         </div>
-                    <span>{tag.name} {tag.id}</span>
+                    <span>{tag.name}</span>
                     </li>)
                 }
 
-
-
-                <li onClick={onAddTag}>
+                <li onClick={addTag}>
                     <div>
                         <Icon name='add'/>
                     </div>
