@@ -5,7 +5,7 @@ import computeOutput from './NumberpadSection/computeOutput';
 type Props={
     value: string,
     onChange:(output: string)=>void,
-    onOk?:()=>void
+    onOk:()=>void
 }
 const NumberpadSection: React.FC <Props> =(props)=>{
     const output=props.value
@@ -19,10 +19,7 @@ const NumberpadSection: React.FC <Props> =(props)=>{
         const text=(e.target as HTMLButtonElement).textContent;
         if(text===null){return}
         if(text==='OK'){
-            if(props.onOk){
-                props.onOk()
-            }
-
+            props.onOk()
         }
         if('0123456789.'.split('').concat(['删除','清空']).indexOf(text)>=0){
             setOutput(computeOutput(text,output))

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import createId from 'lib/createId';
-import useUpdate from './hooks/useUpdate';
+import useUpdate from './useUpdate';
 
 function useTags(){
     const [tags,setTags]=useState<{id:number,name:string}[]>([])
@@ -16,7 +16,7 @@ function useTags(){
     },[])
     useUpdate(()=>{
         window.localStorage.setItem('tags',JSON.stringify(tags))
-    },[tags])
+    },tags)
     const findTag=(id: number)=>{
         return tags.filter(t=>t.id===id)[0]
     }
