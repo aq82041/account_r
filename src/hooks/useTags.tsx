@@ -10,7 +10,8 @@ function useTags(){
             localTags=[{id:createId(),name:'衣服'},
                 {id:createId(),name:'餐饮'},
                 {id:createId(),name:'住房'},
-                {id:createId(),name:'交通'}]
+                {id:createId(),name:'交通'},
+                {id:createId(),name:'工资'}]
         }
         setTags(localTags)
     },[])
@@ -33,6 +34,10 @@ function useTags(){
             setTags([...tags,{id:createId(),name:tagname}])
         }
     }
-    return {tags,setTags,findTag,editTag,deleteTag,addTag}
+    const getName=(id:number)=>{
+        const tag=tags.filter(tag=>tag.id===id)[0]
+        return tag.name
+    }
+    return {tags,setTags,findTag,editTag,deleteTag,addTag,getName}
 }
 export default useTags

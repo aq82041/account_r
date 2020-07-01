@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react';
 import useUpdate from './useUpdate';
 
-type TimedRecord={
+export type TimedRecord={
     category: '-' | '+',
     tagsId: number[],
     note: string,
     amount: string,
     createdAt: string
 }
-type RecordItem=Omit<TimedRecord,'createAt'>
+type RecordItem=Omit<TimedRecord,'createdAt'>
 const useRecords=()=>{
     const [records,setRecords]=useState<TimedRecord[]>([])
     const addRecord=(record: RecordItem)=>{
@@ -25,7 +25,7 @@ const useRecords=()=>{
     useUpdate(()=>{
         window.localStorage.setItem('records',JSON.stringify(records))
     },records)
-    return {addRecord}
+    return {records,addRecord}
 }
 
 export default useRecords

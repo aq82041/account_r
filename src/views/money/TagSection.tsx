@@ -72,7 +72,7 @@ const TagSection : React.FC <Props> =(props)=>{
                 {tags.map(tag=>
                     <li key={tag.id} onClick={()=>{onToggleTag(tag.id)}} className={getClass(tag.id)}>
                         <div>
-                            {['衣服','餐饮','住房','交通'].indexOf(tag.name)>=0?<Icon name={tag.name}/> : <Icon name='star'/>}
+                            {['衣服','餐饮','住房','交通','工资'].indexOf(tag.name)>=0?<Icon name={tag.name}/> : <Icon name='star'/>}
 
                         </div>
                     <span>{tag.name}</span>
