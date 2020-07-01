@@ -26,7 +26,6 @@ const Wrapper=styled.section`
         align-items: center;
         border-radius:50%;
         margin-bottom:4px;
-        
         > .icon{
           width:32px;
           height:32px;

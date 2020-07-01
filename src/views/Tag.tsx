@@ -46,18 +46,25 @@ const Tag: React.FC=()=>{
                 <span>编辑标签</span>
                 <div></div>
             </Topbar>
-            {tag?<div>
-                    <InputWrapper>
-                        <Input type='text' label='标签名' value={tag.name}
-                               onChange={(e)=>{
-                                   editTag(parseInt(id),e.target.value)
-                               }}/>
-                    </InputWrapper>
-                    <Center>
-                        <Button onClick={()=>{deleteTag(parseInt(id))}}>删除标签</Button>
-                    </Center>
-                </div>
-            : <div>标签已删除</div>}
+            {tag?
+                <div>
+                <InputWrapper>
+                <Input type='text' label='标签名' value={tag.name}
+                onChange={(e)=>{
+                editTag(parseInt(id),e.target.value)
+            }}/>
+                </InputWrapper>
+                <Center>
+                <Button onClick={()=>{
+                deleteTag(parseInt(id))
+                window.alert('删除成功')
+                history.goBack()
+            }}>删除标签</Button>
+                </Center>
+                </div> : ''
+            }
+
+
 
         </Layout>
     )

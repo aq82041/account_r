@@ -16,21 +16,23 @@ const NumberpadWrapper=styled.section`
       font-size:16px;
       height:54px;
       float:left;
-      border-top: 1px solid black;
-      border-right: 1px solid black;
+      border-top: 1px solid #999;
+      border-right: 1px solid #999;
       &.ok{
         padding:32px 0;
         float:right;
         height:108px;
-        border-right: none;
-        border-bottom: 1px solid black;
+        background: rgb(140, 177, 253);
+        color:white;
+        border:none;
+        font-size:18px;
       }
       &.zero{
         width:50%;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #999;
       }
       &.dian {
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #999;
       }
 
       &.remove, &.clear {
