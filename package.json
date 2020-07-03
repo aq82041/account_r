@@ -1,6 +1,7 @@
 {
   "name": "account_r",
   "version": "0.1.0",
+  "homepage": "https://aq82041.github.io/account_r_website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
