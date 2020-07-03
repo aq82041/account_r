@@ -7,6 +7,7 @@ const NoteWrapper=styled.section`
   padding:0 16px;
   background:white;
   box-shadow: 0 0 2px rgba(0,0,0,0.25);  
+  border-top:1px solid #f5f5f5;
 `
 
 type Props={

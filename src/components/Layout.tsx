@@ -9,6 +9,7 @@ const Wrapper=styled.div`
 `
 const Main=styled.div`
   flex-grow:1;
+  overflow: auto;
 `
 function Layout(props:any){
     return (

@@ -7,10 +7,12 @@ const Wrapper=styled.section`
   background:white;
   padding:8px;
   flex-grow:1;
+  overflow: auto;
   > ul{
     display:flex;
     flex-wrap:wrap;
     font-size:14px;
+    
     > li{ 
       padding: 12px 21.6px;     
       display:flex;

@@ -91,7 +91,7 @@ function Statistics() {
             <CategorySection value={category}
                              onChange={c=>{setCategory(c)}}/>
             {selectedRecords.length>0? <div>
-                {array.map(item=> <div>
+                {array.map(item=> <div key={item[0]}>
                     <Header>
                         <div className="date">
                             {dayjs(item[0]).format('M月D日')}
